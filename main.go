@@ -42,7 +42,7 @@ func main(){
 	}
 }
 
-func AmbilFile() string  {
+func UbahNamaFile() string  {
 	hari := time.Now().Format("2006-01-03")
 	return hari + ".txt"
 }
@@ -53,7 +53,7 @@ func TambahCatatan(){
 	text, _ := reader.ReadString('\n')
 	text = strings.TrimSpace(text)
 
-	filename := AmbilFile()
+	filename := UbahNamaFile()
 	f, err := os.OpenFile(filename, os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		fmt.Println("Gagal menulis pesan", err)
@@ -71,7 +71,7 @@ func TambahCatatan(){
 }
 
 func LihatCatatan(){
-	filename := AmbilFile()
+	filename := UbahNamaFile()
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		fmt.Println("Catatan belum ada hari ini.")
